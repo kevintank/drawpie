@@ -15,9 +15,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
 		setStepGraph(160, 160);
-		
 	}
 
 	@Override
