@@ -13,7 +13,7 @@
         android:id="@+id/ButtonGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:gravity="center_horizontal">
+        android:gravity="">
 
         <Button
             android:id="@+id/arc"
@@ -59,10 +59,18 @@
 
     <com.kevin.sample.HoofGraph
         android:id="@+id/hoofGraph"
-        android:layout_width="248dp"
-        android:layout_height="209dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/step_graph1"
         android:layout_gravity="bottom" >
     </com.kevin.sample.HoofGraph>
 
+    <com.kevin.sample.RanderView 
+        android:layout_width="300dp" 
+        android:layout_height="300dp" 
+        android:layout_below="@+id/hoofGraph"
+        android:background="#cccccc">
+    </com.kevin.sample.RanderView> 
+      
 </RelativeLayout>

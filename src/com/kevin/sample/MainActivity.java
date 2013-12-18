@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 public class MainActivity extends Activity {
 
 	 PieLayout step_graph;
-	  int dpScale;
+	 int dpScale;
 	  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
