@@ -1,21 +1,43 @@
 package com.kevin.sample;
 
  
- 
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
 	 PieLayout step_graph;
-	 
+	  int dpScale;
+	  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setStepGraph(160, 160);
+		 initDpScale();
+		
+		  findViewById(R.id.arc).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				setStepGraph(160, 160);
+			}
+		});
+		  
+		findViewById(R.id.hoof).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				setHoofGraph(100);
+			}
+		});
+		  //setHoofGraph(100 * dataBody.getCityTotalStepCount() / cityTotalStep);
 	}
 
 	@Override
@@ -38,7 +60,7 @@ public class MainActivity extends Activity {
             flag = Boolean.FALSE;
             step_graph.initArc();
         }
-        step_graph = (PieLayout)findViewById(R.id.step_graph);
+        step_graph = (PieLayout)findViewById(R.id.step_graph1);
 
         // View 초기화
 
@@ -59,5 +81,30 @@ public class MainActivity extends Activity {
         // step_graph.invalidate();
 
         step_graph.animStart(0);
+    }
+    
+    
+
+    /**
+     * N그래프 데이터 셋팅
+     * 
+     * @param percent
+     */
+    private void setHoofGraph(int percent) {
+        HoofGraph hg = (HoofGraph) findViewById(R.id.hoofGraph);
+        hg.setDpScale(this.dpScale);
+        hg.setPercent(percent);
+        hg.invalidate();
+
+    }
+    
+    /**
+     * Dp Scale 셋팅
+     */
+    private void initDpScale() {
+        DisplayMetrics metrics = new DisplayMetrics();
+      
+        	MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        dpScale = metrics.densityDpi / 160;
     }
 }
