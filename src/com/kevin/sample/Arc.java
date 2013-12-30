@@ -196,8 +196,9 @@ public class Arc {
 	 * @param canvas canvas 객체
 	 */
 	public void draw(Canvas canvas){
-		oval = new RectF(x,y,width,height);
-		canvas.drawArc(oval, start-90, end, false, paint);
+		//사각형 객체 rectF를 생성하며 점수 원의 크기를 사각형으로 보고 (좌, 상, 우, 하) 좌표 설정. 좌상이 기준이 된다.
+		oval = new RectF(x,y,width,height);  //x, y는 그려질 시작 위치  위의 reSetOval() 좌, 상 의 마진을 적용함. width, height 는 뷰의 크기이다.
+		canvas.drawArc(oval, start-90, end, false, paint); //drawAcr를 이용하면 오른쪽이 0도가 된다. 일반적으로 가장 위를 0으로 보기 때문에 - 90도를 해준다.
 	}
 	
 	/**
