@@ -13,13 +13,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 /**
- * 원그래프를 그려주는 레이아웃 클래스이다.<br>
- * LinearLayout을 상속하여 확장하였으며 <br>
- * 원그래프의 표현하기 위해 직접적으로 사용하는 Layout 클래스 이다.<br>
- * Layout의 최하단 layer에 원그래프가 그려진다.<br>
- * 원그래프의 호를 add(추가)하는 방식으로 그래프를 설정할수있다.<br>
- * @author 오재웅
- *
+ * 원그래프를 그려주는 레이아웃 클래스이다.<br> LinearLayout을 상속하여 확장하였으며 <br> 원그래프의 표현하기 위해 직접적으로 사용하는 Layout 클래스 이다.<br> Layout의 최하단 layer에 원그래프가 그려진다.<br> 원그래프의 호를 add(추가)하는 방식으로 그래프를 설정할수있다.<br>
+ * @author   오재웅
  */
 public class PieLayout extends FrameLayout{
 
@@ -29,6 +24,10 @@ public class PieLayout extends FrameLayout{
 	private int strokSize = -1;
 	
 	private boolean isBackArc = false;
+	/**
+	 * @uml.property  name="backArc"
+	 * @uml.associationEnd  
+	 */
 	private Arc backArc;
 	private int arcMargin=0;
 	
@@ -110,6 +109,10 @@ public class PieLayout extends FrameLayout{
 		return backArc;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="backArc"
+	 */
 	public Arc getBackArc(){
 		return backArc;
 	}
@@ -252,13 +255,18 @@ public class PieLayout extends FrameLayout{
 		}
 	}
 	
+	/**
+	 * @param  isSizeToScale
+	 * @uml.property  name="isSizeToScale"
+	 */
 	public void setSizeToScale(boolean isSizeToScale){
 		this.isSizeToScale = isSizeToScale;
 	}
 	
 	/**
 	 * 원그래프 호의 두께를 받는다.
-	 * @return 호의 두께사이즈
+	 * @return   호의 두께사이즈
+	 * @uml.property  name="strokSize"
 	 */
 	public int getStrokSize(){
 		if(isSizeToScale){
@@ -277,6 +285,10 @@ public class PieLayout extends FrameLayout{
 		}
 	}
 	
+	/**
+	 * @param  size
+	 * @uml.property  name="strokSize"
+	 */
 	public void setStrokSize(int size){
 		strokSize=(int)(size*density);
 	}
@@ -347,7 +359,8 @@ public class PieLayout extends FrameLayout{
 	
 	/**
 	 * 원그래프 호두꼐의 스케일값을 받는데
-	 * @return 스케일값
+	 * @return   스케일값
+	 * @uml.property  name="strokScale"
 	 */
 	public float getStrokScale(){
 		return this.strokScale;
@@ -388,10 +401,18 @@ public class PieLayout extends FrameLayout{
 		this.maxAngle = maxAngle;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="startAngle"
+	 */
 	public float getStartAngle(){
 		return this.startAngle;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="maxAngle"
+	 */
 	public float getMaxAngle(){
 		return this.maxAngle;
 	}
@@ -407,10 +428,18 @@ public class PieLayout extends FrameLayout{
 		pieSkin.add(ps);
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="pieSkin"
+	 */
 	public ArrayList getPieSkin(){
 		return pieSkin;
 	}
 	
+	/**
+	 * @param  isCapRound
+	 * @uml.property  name="isCapRound"
+	 */
 	public void setCapRound(boolean isCapRound){
 		this.isCapRound = isCapRound;
 		for(int i=0;i<arcs.size();i++){

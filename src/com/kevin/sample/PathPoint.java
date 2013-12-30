@@ -34,17 +34,29 @@ public class PathPoint {
     /**
      * The location of this PathPoint
      */
-    float mX, mY;
+    float mX;
+	/**
+     * The location of this PathPoint
+     */
+	float mY;
     
     /**
      * The first control point, if any, for a PathPoint of type CURVE
      */
-    float mControl0X, mControl0Y;
+    float mControl0X;
+	/**
+     * The first control point, if any, for a PathPoint of type CURVE
+     */
+	float mControl0Y;
 
     /**
      * The second control point, if any, for a PathPoint of type CURVE
      */
-    float mControl1X, mControl1Y;
+    float mControl1X;
+	/**
+     * The second control point, if any, for a PathPoint of type CURVE
+     */
+	float mControl1Y;
 
     /**
      * The motion described by the path to get from the previous PathPoint in an AnimatorPath

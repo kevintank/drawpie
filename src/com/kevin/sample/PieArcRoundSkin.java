@@ -7,16 +7,22 @@ import android.graphics.RectF;
 
 /**
  * 파이그래프의 스킨으로 홈화면의 삼각형
- * 
- * @author vuva
- * 
+ * @author   vuva
  */
 public class PieArcRoundSkin implements IPieSkin {
+	/**
+	 * @uml.property  name="pl"
+	 * @uml.associationEnd  
+	 */
 	private PieLayout pl;
-	float x, y;
-	float rx, ry;
-	float dx, dy;
-	float dx2, dy2;
+	float x;
+	float y;
+	float rx;
+	float ry;
+	float dx;
+	float dy;
+	float dx2;
+	float dy2;
 	float centerX;
 	float centerY;
 	float width;

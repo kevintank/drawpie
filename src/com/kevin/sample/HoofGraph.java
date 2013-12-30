@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.View;
  
 
+/**
+ * @author   Administrator
+ */
 public class HoofGraph extends View {
  	private int l = 84;
  	private int r = 84;
@@ -39,6 +42,10 @@ public class HoofGraph extends View {
 	
  	Canvas cn;
  	
+ 	/**
+	 * @param  percent
+	 * @uml.property  name="percent"
+	 */
  	public void setPercent(int percent){
  		this.percent = percent;
  	}
@@ -91,6 +98,10 @@ public class HoofGraph extends View {
 		return getTotalLength()*percent/100;
 	}
 	
+	/**
+	 * @param  scale
+	 * @uml.property  name="dpScale"
+	 */
 	public void setDpScale(int scale) {
 		this.l = this.l/ this.dpScale;
 	 	this.r = this.r/ this.dpScale;

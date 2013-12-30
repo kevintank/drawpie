@@ -8,19 +8,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <LinearLayout
         android:id="@+id/ButtonGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:gravity="">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/arc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="원" />
-
         <Button
             android:id="@+id/hoof"
             android:layout_width="wrap_content"
@@ -29,7 +33,6 @@
             android:layout_marginRight="0dp"
             android:text="후프" />
     </LinearLayout>
-
     <TextView
         android:id="@+id/slash"
         android:layout_width="match_parent"
@@ -38,39 +41,37 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:background="#902211" />
-
-    <com.kevin.sample.PieLayout
-        android:id="@+id/step_graph1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignLeft="@+id/slash"
-        android:layout_below="@+id/slash"
-        android:background="#00ff00" >
-    </com.kevin.sample.PieLayout>
-
-    <com.kevin.sample.PieLayout
-        android:id="@+id/step_graph2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@+id/slash"
-        android:layout_toRightOf="@+id/step_graph1"
-        android:background="#0000ff" >
-    </com.kevin.sample.PieLayout>
-
-    <com.kevin.sample.HoofGraph
-        android:id="@+id/hoofGraph"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/step_graph1"
-        android:layout_gravity="bottom" >
-    </com.kevin.sample.HoofGraph>
-
-    <com.kevin.sample.RanderView 
-        android:layout_width="300dp" 
-        android:layout_height="300dp" 
-        android:layout_below="@+id/hoofGraph"
-        android:background="#cccccc">
-    </com.kevin.sample.RanderView> 
-      
+   
+	    <com.kevin.sample.PieLayout
+	        android:id="@+id/step_graph1"
+	        android:layout_width="150dp"
+	        android:layout_height="150dp"
+	        android:layout_alignLeft="@+id/slash"
+	        android:layout_below="@+id/slash"
+	        android:background="#00ff00" >
+	    </com.kevin.sample.PieLayout>
+	    <com.kevin.sample.PieLayout
+	        android:id="@+id/step_graph2"
+	        android:layout_width="150dp"
+	        android:layout_height="150dp"
+	        android:layout_below="@+id/slash"
+	        android:layout_toRightOf="@+id/step_graph1"
+	        android:background="#0000ff" >
+	    </com.kevin.sample.PieLayout>
+	    <com.kevin.sample.HoofGraph
+	        android:id="@+id/hoofGraph"
+	        android:layout_width="300dp"
+	        android:layout_height="300dp"
+	        android:layout_marginTop="20dp"
+	        android:layout_below="@+id/step_graph1"
+	        android:layout_gravity="bottom" >
+	    </com.kevin.sample.HoofGraph>
+	    <com.kevin.sample.RanderView 
+	        android:layout_width="300dp" 
+	        android:layout_height="300dp" 
+	        android:layout_below="@+id/hoofGraph"
+	        android:background="#cccccc">
+	    </com.kevin.sample.RanderView> 
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

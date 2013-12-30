@@ -10,15 +10,13 @@ import android.graphics.RectF;
 import android.view.View;
 
 /**
- * @author 오재웅
- *
- * 원그래프의 기초 재료가 되는 클래스 이다.<br>
- * 그래프의 하나의 Arc 영역을 표시 하는 단위이다.<br>
- * 실제적으로 설정된 속성에따라 그래프가 화면에 표현되는 정보를 담았으며<br>
- * 그정보에 따라 canvas에 화면을 그려주는  알고리즘을 포함하고있다.<br>
- * 해당 영역에 대한 속성들을 변경할수 있다.
+ * @author   오재웅  원그래프의 기초 재료가 되는 클래스 이다.<br>  그래프의 하나의 Arc 영역을 표시 하는 단위이다.<br>  실제적으로 설정된 속성에따라 그래프가 화면에 표현되는 정보를 담았으며<br>  그정보에 따라 canvas에 화면을 그려주는  알고리즘을 포함하고있다.<br>  해당 영역에 대한 속성들을 변경할수 있다.
  */
 public class Arc {
+	/**
+	 * @uml.property  name="pl"
+	 * @uml.associationEnd  
+	 */
 	private PieLayout pl;
 	
 	public float start=0;
@@ -147,7 +145,8 @@ public class Arc {
 	
 	/**
 	 * 색,질감등의 paint객체를 설정한다.
-	 * @param paint paint표현 객체
+	 * @param paint   paint표현 객체
+	 * @uml.property  name="paint"
 	 */
 	public void setPaint(Paint paint){
 		this.paint = paint;
@@ -174,7 +173,8 @@ public class Arc {
 	
 	/**
 	 * 호의 컬러를 설정한다.
-	 * @param color 컬러
+	 * @param color   컬러
+	 * @uml.property  name="color"
 	 */
 	public void setColor(int color){
 		this.color = color;
@@ -183,7 +183,8 @@ public class Arc {
 	
 	/**
 	 * 호의 두께를 설정한다.
-	 * @param size 크기
+	 * @param size   크기
+	 * @uml.property  name="strokSize"
 	 */
 	public void setStrokSize(int size){
 		this.strokSize = size;
@@ -220,6 +221,11 @@ public class Arc {
 	}
 	
 	
+	/**
+	 * @param isCapRound
+	 * @return
+	 * @uml.property  name="isCapRound"
+	 */
 	public Arc setCapRound(boolean isCapRound){
 		this.isCapRound = isCapRound;
 		init();

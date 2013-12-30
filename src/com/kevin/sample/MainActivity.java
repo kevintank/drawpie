@@ -9,9 +9,16 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+/**
+ * @author   Administrator
+ */
 public class MainActivity extends Activity {
 
-	 PieLayout step_graph;
+	 /**
+	 * @uml.property  name="step_graph"
+	 * @uml.associationEnd  
+	 */
+	PieLayout step_graph;
 	 int dpScale;
 	  
 	@Override
