@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.EmbossMaskFilter;
 import android.os.SystemClock;
 import android.util.AttributeSet;
@@ -131,11 +132,14 @@ public class PieLayout extends FrameLayout{
 		}
 		for(int i=0;i<arcs.size();i++){
 			Arc arc = (Arc)arcs.get(i);
+			arc.setColor(Color.RED);
 			arc.setStrokSize(getStrokSize());
 			arc.setSize(this.getWidth(), this.getHeight(),this.arcMargin);
-			arc.draw(canvas);
+			arc.draw(canvas);  //원 그리기
+			
+			// 퍼센트를 그리기 위함.
 			if(!isInitpieSkin){
-				for(int j=0;j<pieSkin.size();j++){
+				for(int j=0;j<pieSkin.size();j++){ //piePercentSkin , PieArcRoundSkin 2개 있다.
 					pieSkin.get(j).init(this);
 				}
 				isInitpieSkin = true;
@@ -154,7 +158,7 @@ public class PieLayout extends FrameLayout{
 	 */
 	public void animStart(int arcIndex){
 		for(int i=0;i<threadPool.size();i++){
-			threadPool.get(i).interrupt();
+			threadPool.get(i).interrupt();  //쓰레드 종료
 		}
 		threadPool.clear();
 		Thread thread = new Thread(new AnimDraw(arcIndex));
@@ -204,7 +208,7 @@ public class PieLayout extends FrameLayout{
 			if(index>=0){
 				animDraw(index);
 			}else{
-				animDraw();
+				animDraw(); //
 			}
 		}
 		
@@ -424,6 +428,7 @@ public class PieLayout extends FrameLayout{
 		return arcMargin;
 	}
 	
+	// 배열에스킨 객체 넣기
 	public void addPieSkin(IPieSkin ps){
 		pieSkin.add(ps);
 	}

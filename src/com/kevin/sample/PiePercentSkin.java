@@ -28,11 +28,19 @@ public class PiePercentSkin implements IPieSkin {
 	private LinearLayout layout;
 	private TextView textView;
 
+	/**
+	 * 폰트 사이즈 텍스트 사이즈 지정
+	 * @param fontSize
+	 * @param textSize
+	 */
 	public PiePercentSkin(float fontSize, float textSize) {
 		this.fontSize = fontSize;
 		this.textSize = textSize;
 	}
 
+	/**
+	 * 초기화
+	 */
 	@Override
 	public void init(PieLayout pieLayout) {
 		this.pl = pieLayout;
@@ -56,12 +64,15 @@ public class PiePercentSkin implements IPieSkin {
 		p.setText("%");
 		p.setTextColor(Color.WHITE);
 		p.setTextSize(fontSize / 2);
-		layout.addView(textView, layout.getLayoutParams());
-		layout.addView(p);
-		textView.setVisibility(View.INVISIBLE);
+		layout.addView(textView, layout.getLayoutParams()); //숫자
+		layout.addView(p);                                  //% 기호를 동적 레이아웃에 추가 한다.
+		textView.setVisibility(View.INVISIBLE);             //숫자 감추기
 		// pl.addView(layout);
 	}
 
+	/**
+	 *  숫자와 
+	 */
 	@Override
 	public void draw(PieLayout pieLayout, Canvas canvas, float startAngle, float maxAngle, float startRadians,
 	        float radians, int arcIndex) {
@@ -69,6 +80,8 @@ public class PiePercentSkin implements IPieSkin {
 		if (pl == null) {
 			return;
 		}
+
+		//여기는 퍼센트 
 		String strValue = String.valueOf(value);
 
 		float textWidth = fontSize * (strValue.length()) + pl.density * 2 + fontSize / 2;
@@ -97,12 +110,13 @@ public class PiePercentSkin implements IPieSkin {
 		textPaint.setTextSize(fontSize * pl.density);
 		textPaint.setTextAlign(Paint.Align.RIGHT);
 		canvas.drawText(strValue, x + fontSize * strValue.length() + pl.density, y + fontSize / 2 * pl.density + 2
-		        * pl.density, textPaint);
+		        * pl.density, textPaint); //퍼센트 그려주고
 		textPaint.setTextSize(fontSize * pl.density / 2);
 		textPaint.setTextAlign(Paint.Align.LEFT);
 		canvas.drawText("%", x + fontSize * strValue.length() + pl.density, y + fontSize / 2 * pl.density + 2
 		        * pl.density, textPaint);
-
+     
+		//여기는 삼각형 그리기
 		float x1 = (float) ((r) * Math.cos(Math.toRadians(realRadians)) + centerX);
 		float y1 = (float) ((r) * Math.sin(Math.toRadians(realRadians)) + centerY);
 		float x2 = (float) (x1 + lineLenth * Math.cos(Math.toRadians(realRadians + 30)));
