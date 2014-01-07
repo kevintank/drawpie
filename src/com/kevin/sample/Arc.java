@@ -39,7 +39,7 @@ public class Arc {
 	 * @param pl PieLayout 객체
 	 */
 	public Arc(PieLayout pl){
-		this.pl = pl;
+		this.pl = pl;   //초기화 입니다.
 		init();
 		setArc(start,end,color);
 	}
