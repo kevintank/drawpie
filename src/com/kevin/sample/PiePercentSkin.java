@@ -76,7 +76,7 @@ public class PiePercentSkin implements IPieSkin {
 	@Override
 	public void draw(PieLayout pieLayout, Canvas canvas, float startAngle, float maxAngle, float startRadians,
 	        float radians, int arcIndex) {
-		int value = (int) Math.round(radians * 100f / (maxAngle - startAngle));
+		int value = (int) Math.round(radians * 100f / (maxAngle - startAngle)); //전체 중에서 현재 위치의 퍼센트를 구함.
 		if (pl == null) {
 			return;
 		}
